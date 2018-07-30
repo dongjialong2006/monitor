@@ -1,0 +1,12 @@
+package: .
+import:
+- package: github.com/dongjialong2006/log
+- package: github.com/shirou/gopsutil
+  version: ~2.18.6
+  subpackages:
+  - process
+testImport:
+- package: github.com/onsi/ginkgo
+  version: ~1.6.0
+- package: github.com/onsi/gomega
+  version: ~1.4.1
