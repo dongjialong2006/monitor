@@ -1,8 +1,8 @@
 hash: b6d238f755607eedd4abc21e254600211df445b919d347396bbab241b903381e
-updated: 2018-07-30T17:29:53.090809+08:00
+updated: 2018-08-06T14:21:06.138079+08:00
 imports:
 - name: github.com/dongjialong2006/log
-  version: 0339ffdaf98490ae47c0c3ae718b1ae9d815baf8
+  version: 2ea126fd2dacd5bed4cb30f148bb36492152303b
 - name: github.com/go-ole/go-ole
   version: a41e3c4b706f6ae8dfbff342b06e40fa4d2d0506
   subpackages:
@@ -22,7 +22,7 @@ imports:
 - name: github.com/rifflock/lfshook
   version: bf539943797a1f34c1f502d07de419b5238ae6c6
 - name: github.com/shirou/gopsutil
-  version: 4a180b209f5f494e5923cfce81ea30ba23915877
+  version: 8048a2e9c5773235122027dd585cf821b2af1249
   subpackages:
   - cpu
   - host
@@ -39,7 +39,7 @@ imports:
 - name: github.com/x-cray/logrus-prefixed-formatter
   version: bb2702d423886830dee131692131d35648c382e2
 - name: golang.org/x/crypto
-  version: c126467f60eb25f8f27e5a981f32a87e3965053f
+  version: 56440b844dfe139a8ac053f4ecac0b20b79058f4
   subpackages:
   - ssh/terminal
 - name: golang.org/x/sys
@@ -49,7 +49,7 @@ imports:
   - windows
 testImports:
 - name: github.com/hpcloud/tail
-  version: a1dbeea552b7c8df4b542c66073e393de198a800
+  version: a30252cb686a21eb2d0b98132633053ec2f7f1e5
   subpackages:
   - ratelimiter
   - util
@@ -113,8 +113,8 @@ testImports:
   - language
   - runes
   - transform
-- name: gopkg.in/fsnotify/fsnotify.v1
-  version: c2828203cd70a50dcccfb2761f8b1f8ceef9a8e9
+- name: gopkg.in/fsnotify.v1
+  version: 7be54206639f256967dd82fa767397ba5f8f48f5
 - name: gopkg.in/tomb.v1
   version: c131134a1947e9afd9cecfe11f4c6dff0732ae58
 - name: gopkg.in/yaml.v2

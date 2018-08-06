@@ -45,24 +45,38 @@ func (m *monitor) watch() {
 		return
 	}
 
+	var num time.Duration = time.Duration(1)
 	var cpuPercent float64 = 0.0
 	var memPercent float32 = 0.0
-	tick := time.Tick(time.Second)
+
+	var tick1 = time.Tick(time.Second * num)
+	var tick2 = time.Tick(time.Second * num)
+
 	for {
 		select {
 		case <-m.stop:
 			return
 		case <-m.ctx.Done():
 			return
-		case <-tick:
+		case <-tick1:
 			if cpuPercent, err = proc.CPUPercentWithContext(m.ctx); nil != err {
+				num++
+				tick1 = time.Tick(time.Second * num)
+				if num == 120 {
+					num = 1
+				}
 				m.log.Error(err)
 			}
 			if cpuPercent > m.cpu {
 				m.log.WithField("pid", pid).Infof("cpu percent:%f.", cpuPercent)
 			}
-
+		case <-tick2:
 			if memPercent, err = proc.MemoryPercentWithContext(m.ctx); nil != err {
+				num++
+				tick2 = time.Tick(time.Second * num)
+				if num == 120 {
+					num = 1
+				}
 				m.log.Error(err)
 			}
 
