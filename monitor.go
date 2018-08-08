@@ -3,12 +3,14 @@ package monitor
 import (
 	"context"
 	"os"
+	"sync"
 	"time"
 
 	"github.com/dongjialong2006/log"
 	"github.com/shirou/gopsutil/process"
 )
 
+var rw sync.RWMutex
 var def *monitor = nil
 
 type monitor struct {
@@ -88,13 +90,18 @@ func (m *monitor) watch() {
 }
 
 func Watch(ctx context.Context, cpu float64, mem float32) {
+	rw.Lock()
+	defer rw.Unlock()
 	if nil == def {
 		def = new(ctx, cpu, mem)
 	}
 }
 
 func Stop() {
+	rw.Lock()
+	defer rw.Unlock()
 	if nil != def {
 		close(def.stop)
+		def = nil
 	}
 }
