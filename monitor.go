@@ -24,8 +24,8 @@ type monitor struct {
 func new(ctx context.Context, cpu float64, mem float32) *monitor {
 	m := &monitor{
 		ctx:  ctx,
-		cpu:  5.0,
-		mem:  5.0,
+		cpu:  cpu,
+		mem:  mem,
 		log:  log.New("util/monitor"),
 		stop: make(chan struct{}),
 	}
